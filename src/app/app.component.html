@@ -1,0 +1,17 @@
+<div class="check-list-container">
+  <div>
+    <h1>Add new Item List</h1>
+    <form [formGroup]="form">
+      <input formControlName="title">
+      <input type="checkbox" formControlName="checked">
+      <button (click)="addListItem()">ADD ITEM</button>
+    </form>
+  </div>
+
+  <div class="check-list-container--list" *ngFor="let item of toDoList | async">
+    {{item.title}}
+    <input type="checkbox" [(ngModel)]="item.checked" (click)="updateItem(item)">
+  </div>
+</div>
+
+
